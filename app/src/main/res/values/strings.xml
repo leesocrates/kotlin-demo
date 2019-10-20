@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="view_tips">Hello, this is Activity action VIEW test</string>
+</resources>

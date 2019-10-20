@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:ordering="together">
+
+    <objectAnimator
+        android:duration="2000"
+        android:propertyName="textSize"
+        android:repeatCount="2"
+        android:repeatMode="reverse"
+        android:startOffset="0"
+        android:valueFrom="18"
+        android:valueTo="36"
+        android:valueType="floatType" />
+
+    <!--    <animator-->
+    <!--        android:duration="int"-->
+    <!--        android:valueFrom="float | int | color"-->
+    <!--        android:valueTo="float | int | color"-->
+    <!--        android:startOffset="int"-->
+    <!--        android:repeatCount="int"-->
+    <!--        android:repeatMode=["repeat" | "reverse"]-->
+    <!--    android:valueType=["intType" | "floatType"]/>-->
+
+</set>

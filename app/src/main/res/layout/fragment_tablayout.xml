@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tabStyle="http://schemas.android.com/apk/res-auto">
+
+    <cn.example.baselib.view.tabswitchwidget.TabLayoutView
+        android:id="@+id/tabLayoutView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        tabStyle:singleTabStyle="@string/tabStyleTwoLineText"
+        android:background="@color/color_white"/>
+
+    <cn.example.baselib.view.tagwidget.TagLayoutView
+        android:id="@+id/tagLayoutView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:background="@drawable/shape_circle_rect"/>
+</LinearLayout>
