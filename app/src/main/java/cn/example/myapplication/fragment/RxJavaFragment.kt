@@ -7,10 +7,8 @@ import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 import io.reactivex.functions.Function
 import io.reactivex.schedulers.Schedulers
-import java.util.HashMap
-import java.util.concurrent.ConcurrentHashMap
 
-class RxJavaFragment :AppBaseFragment(){
+class compileOnlyFragment :AppBaseFragment(){
     override fun getLayoutId(): Int {
         return R.layout.fragment_rxjava
     }

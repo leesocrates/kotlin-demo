@@ -9,7 +9,6 @@ import android.os.Build
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
-import android.webkit.*
 import androidx.annotation.RequiresApi
 import cn.example.baselib.activity.BaseActivity
 import cn.example.myapplication.MainActivity
@@ -19,10 +18,16 @@ import cn.example.myapplication.h5.WebPresenter
 import kotlinx.android.synthetic.main.activity_webview.*
 import java.io.IOException
 import java.io.InputStream
-import android.webkit.WebResourceResponse
 import android.widget.LinearLayout
 import cn.example.myapplication.h5.BaseWebViewActivity
 import cn.example.myapplication.h5.WebViewManager
+import com.tencent.smtt.export.external.interfaces.JsPromptResult
+import com.tencent.smtt.export.external.interfaces.WebResourceRequest
+import com.tencent.smtt.export.external.interfaces.WebResourceResponse
+import com.tencent.smtt.sdk.ValueCallback
+import com.tencent.smtt.sdk.WebChromeClient
+import com.tencent.smtt.sdk.WebView
+import com.tencent.smtt.sdk.WebViewClient
 
 
 class WebViewActivity : BaseWebViewActivity(), WebPresenter {
@@ -78,6 +83,10 @@ class WebViewActivity : BaseWebViewActivity(), WebPresenter {
 
                 } else if (url.contains("reload")) {
                     webView.loadUrl("javascript:reload()")
+                }else if(url.contains("zhangmen")){
+                    val s = Uri.encode("https://10916-fat-7.qa.zmlearn.com/weike/list")
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("zhangmen://frame?url=$s&modulePath=activeWebPage&isHiddenNavBar=true"))
+                    startActivity(intent)
                 } else {
                     webView.loadUrl(url)
                 }
@@ -192,6 +201,7 @@ class WebViewActivity : BaseWebViewActivity(), WebPresenter {
         super.onDestroy()
         webViewContainer.removeView(webView)
         webView.removeAllViews()
-        WebViewManager.instance.recycleWebView(webView)
+        webView.destroy()
+//        WebViewManager.instance.recycleWebView(webView)
     }
 }

@@ -2,15 +2,18 @@ package cn.example.myapplication.h5
 
 import android.view.KeyEvent
 import android.view.View
-import android.webkit.WebSettings
-import android.webkit.WebView
+//import android.webkit.WebSettings
+//import android.webkit.WebView
 import cn.example.baselib.activity.BaseActivity
+import com.tencent.smtt.sdk.WebSettings
+import com.tencent.smtt.sdk.WebView
 
 abstract class BaseWebViewActivity: BaseActivity() {
     lateinit var webView: WebView
 
     override fun initOnCreate() {
-        webView = WebViewManager.instance.getWebview() ?: WebView(applicationContext)
+//        webView = WebViewManager.instance.getWebview() ?: WebView(applicationContext)
+        webView = WebView(this)
         initBaseWebView()
     }
 

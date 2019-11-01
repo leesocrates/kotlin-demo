@@ -5,7 +5,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import cn.example.baselib.activity.BaseActivity
+import cn.example.businessone.activity.BusinessOneActivity
 import cn.example.myapplication.activity.*
+import cn.example.myapplication.h5.VideoFullScreenActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
@@ -15,6 +17,9 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initOnCreate() {
+        openBusinessOne.setOnClickListener {
+            startActivity(Intent(this, BusinessOneActivity::class.java))
+        }
         openFragmentActivity.setOnClickListener {
             startActivity(Intent(this, FragmentActivity::class.java))
         }
@@ -42,6 +47,9 @@ class MainActivity : BaseActivity() {
         }
         openSurfaceActivity.setOnClickListener {
             startActivity(Intent(this, SurfaceActivity::class.java))
+        }
+        openVideoFullScreenActivity.setOnClickListener {
+            startActivity(Intent(this, VideoFullScreenActivity::class.java))
         }
 //        var file = File(FileUtils.getAssetsCacheFile(this,"classes10.dex"))
 //

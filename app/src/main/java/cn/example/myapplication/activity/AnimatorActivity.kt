@@ -34,7 +34,6 @@ class AnimatorActivity : BaseActivity() {
 
         val objectAnimator = ObjectAnimator.ofFloat(animator_object, "rotationY", 18.0f,36.0f)
         objectAnimator.duration = 2000
-        var i= 0
         objectAnimator.addUpdateListener { animation ->
             val value = animation?.animatedValue
             var oldTexSize = animator_object.textSize

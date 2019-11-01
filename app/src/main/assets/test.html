@@ -1,23 +1,73 @@
+<!DOCTYPE html>
 <html>
-
 <head>
     <meta http-equiv="Content-Type" charset="UTF-8"/>
 
+    <style>
+        #container {
+  width: 100%;
+  height: 50%;
+  position: relative;
+}
+#navi,
+#infoi {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#infoi {
+  z-index: 10;
+}
+
+
+    </style>
     <script type="text/javascript">
             var s = '我来自Js方法';
             function javatojscallback(param){
+            addVideoListener()
                  document.getElementById("textshow").innerHTML = (param);
                  return s
             }
 
             function jstojavaprompt(param){
+            addVideoListener()
              result = prompt(param);
              document.getElementById("textshow").innerHTML = (result);
             }
 
             function fullscreen(){
-            document.getElementById("video").requestFullscreen();
+                myVideo = document.getElementById("video");
+                myVideo.play();
+                if (typeof(myVideo.webkitEnterFullscreen) != "undefined") {
+                    // This is for Android Stock.
+                    myVideo.webkitEnterFullscreen();
+                } else if (typeof(myVideo.webkitRequestFullscreen)  != "undefined") {
+                    // This is for Chrome.
+                    myVideo.webkitRequestFullscreen();
+                } else if (typeof(myVideo.mozRequestFullScreen)  != "undefined") {
+                    myVideo.mozRequestFullScreen();
+                }
             }
+
+            function addVideoListener(){
+                console.log("addVideoListener")
+                myVideo = document.getElementById("video");
+                myVideo.addEventListener('play',function(){
+                    console.log("addVideoListener play invoke")
+                    if (typeof(myVideo.webkitEnterFullscreen) != "undefined") {
+                        // This is for Android Stock.
+                        myVideo.webkitEnterFullscreen();
+                    } else if (typeof(myVideo.webkitRequestFullscreen)  != "undefined") {
+                        // This is for Chrome.
+                        myVideo.webkitRequestFullscreen();
+                    } else if (typeof(myVideo.mozRequestFullScreen)  != "undefined") {
+                        myVideo.mozRequestFullScreen();
+                    }
+                });
+            }
+
     </script>
 </head>
 
@@ -32,17 +82,20 @@
 <input type="button" value="onJsPrompt"
        onclick="jstojavaprompt('js://jstojava?arg3=3号参数&arg4=4号参数')"/>
 
-<video id="video" width="320" height="240" controls>
-    <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4">
-    您的浏览器不支持 HTML5 video 标签。
-</video>
+<!--<div id="container" >-->
+    <!--<div id="navi">-->
+        <!--<video id="video" width="100%"  controls>-->
+            <!--<source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4">-->
+            <!--您的浏览器不支持 HTML5 video 标签。-->
+        <!--</video>-->
+    <!--</div>-->
+    <!--<input id="infoi" type="button" value="fullScreenPlay"-->
+           <!--onclick="fullscreen()"/>-->
+<!--</div>-->
 
-<input type="button" value="fullScreen"
-       onclick="fullscreen()"/>
-
-<img src="http://www.lee.com/testImg.png" />
+<img src="http://www.lee.com/testImg.png"/>
 
 <a href="lee://www.soc.com/mainactivity">跳转到主activity</a>
+<a href="zhangmen://frame">跳转到掌门app</a>
 </body>
-
 </html>

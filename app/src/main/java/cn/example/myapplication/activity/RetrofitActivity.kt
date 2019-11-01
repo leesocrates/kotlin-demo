@@ -4,10 +4,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import cn.example.myapplication.R
 import cn.example.myapplication.network.NetApi
-import cn.example.myapplication.network.RetrofitConfig
+import cn.example.myapplication.network.NetService
+import com.example.lib_network.RetrofitManager
 
 open class RetrofitActivity : AppCompatActivity(){
-    protected val retrofitService: NetApi by lazy { RetrofitConfig.retrofit.create(NetApi::class.java) }
+    private val retrofitService: NetApi by lazy { NetService<NetApi>(NetApi::class.java).netApi }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

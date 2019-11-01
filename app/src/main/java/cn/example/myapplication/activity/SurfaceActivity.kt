@@ -3,11 +3,12 @@ package cn.example.myapplication.activity
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
-import android.webkit.WebChromeClient
 import android.widget.FrameLayout
 import cn.example.myapplication.R
 import cn.example.myapplication.h5.BaseWebViewActivity
 import cn.example.myapplication.view.CustomSurfaceView
+import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient
+import com.tencent.smtt.sdk.WebChromeClient
 import kotlinx.android.synthetic.main.activity_surface.*
 
 class SurfaceActivity: BaseWebViewActivity() {
@@ -35,7 +36,7 @@ class SurfaceActivity: BaseWebViewActivity() {
 
     fun initWebView(){
         webView.webChromeClient = object: WebChromeClient(){
-            override fun onShowCustomView(view: View?, callback: CustomViewCallback?) {
+            override fun onShowCustomView(view: View?, callback: IX5WebChromeClient.CustomViewCallback?) {
                 super.onShowCustomView(view, callback)
                 Log.i("webview", "onShowCustomView")
             }

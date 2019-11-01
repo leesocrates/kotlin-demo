@@ -1,2 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cn.example.businessone" />
+    package="cn.example.businessone" >
+
+    <application >
+        <activity android:name=".activity.BusinessOneActivity" />
+    </application>
+</manifest>

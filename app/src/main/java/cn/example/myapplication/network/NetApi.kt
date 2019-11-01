@@ -10,7 +10,4 @@ import retrofit2.http.Url
 interface NetApi {
     @POST("login")
     fun login(@Body bodyMap: Map<String, Any?>): Observable<BaseResponse<Nothing>>
-
-    @GET
-    fun loadBaidu(@Url url: String): Observable<BaseResponse<String>>
 }

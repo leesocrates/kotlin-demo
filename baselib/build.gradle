@@ -36,6 +36,7 @@ dependencies {
     api deps.picasso
     api deps.eventbus
     api deps.coroutines
+    api deps.rxJava
     api deps.coroutinesAndroid
     implementation deps.androidxCompat
     implementation deps.androidxCore
