@@ -83,11 +83,7 @@ class WebViewActivity : BaseWebViewActivity(), WebPresenter {
 
                 } else if (url.contains("reload")) {
                     webView.loadUrl("javascript:reload()")
-                }else if(url.contains("zhangmen")){
-                    val s = Uri.encode("https://10916-fat-7.qa.zmlearn.com/weike/list")
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("zhangmen://frame?url=$s&modulePath=activeWebPage&isHiddenNavBar=true"))
-                    startActivity(intent)
-                } else {
+                }else {
                     webView.loadUrl(url)
                 }
                 intent?.let {
