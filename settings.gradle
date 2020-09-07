@@ -1,1 +1,2 @@
+include ':jvmtest'
 include ':app', ':baselib', ':businessone', ':businesstwo', ':module-annotation', ':module-compiler', ':module-core', ':moduleusetest', ':standalone:bsonestandalone', ':standalone:moduleteststandalone', ':bsThree', ':lib_network'
