@@ -36,3 +36,10 @@ dependencies {
     annotationProcessor project(':module-compiler')
 //    implementation project(':businessone')
 }
+
+tasks.getByName("assemble"){
+    it.doLast{
+        println "$project.name: After assemble, jar libs are copied to local repository"
+//        copyOutput(true)
+    }
+}

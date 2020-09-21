@@ -88,3 +88,12 @@ allprojects {
         }
     }
 }
+
+subprojects {
+    println "subprojects configurion for $project.name" //遍历子 Project，project 变量对应每个子 Project
+    buildscript { //这也是一个 SB
+        //为每个子 Project 加载 utils.gradle 。当然，这句话可以放到 buildscript 花括号之后
+        apply from: rootProject.getRootDir().getAbsolutePath() + "/utils.gradle"
+    }//buildscript 结束
+}
+
