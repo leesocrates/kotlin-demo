@@ -45,17 +45,17 @@ android {
     }
 }
 
-buildscript {
-    repositories {
-        maven {//本地Maven仓库地址
-            url uri('D:/repos')
-        }
-    }
-    dependencies {
-        //格式为-->group:module:version
-        classpath 'com.lee.plugin:mytestplugin:3.0.0'
-    }
-}
+//buildscript {
+//    repositories {
+//        maven {//本地Maven仓库地址
+//            url uri('D:/repos')
+//        }
+//    }
+//    dependencies {
+//        //格式为-->group:module:version
+//        classpath 'com.lee.plugin:mytestplugin:4.0.0'
+//    }
+//}
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
