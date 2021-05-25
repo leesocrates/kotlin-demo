@@ -65,6 +65,8 @@ class MainActivity : BaseActivity() {
             testDialogShow()
         }
 
+        Log.e("","")
+
 //        var file = File(FileUtils.getAssetsCacheFile(this,"classes10.dex"))
 //        HotFixUtils.loadFixedDex(this, file)
     }
