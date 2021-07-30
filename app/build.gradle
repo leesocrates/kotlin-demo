@@ -3,6 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'com.didiglobal.booster'
+
 android {
     compileSdkVersion androidCompileSdkVersion
     buildToolsVersion androidBuildToolsVersions
@@ -78,6 +80,9 @@ dependencies {
     api 'com.tencent.tbs.tbssdk:sdk:43697'
     implementation project(':lib_network')
     implementation project(':businessone')
+
+    implementation 'com.google.dagger:dagger:2.21'
+    kapt 'com.google.dagger:dagger-compiler:2.21'
 }
 repositories {
     mavenCentral()

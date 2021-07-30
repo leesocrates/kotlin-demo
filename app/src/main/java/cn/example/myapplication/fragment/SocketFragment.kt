@@ -3,7 +3,6 @@ package cn.example.myapplication.fragment
 import android.util.Log
 import cn.example.baselib.fragment.BaseFragment
 import cn.example.myapplication.R
-import cn.example.myapplication.network.log
 import kotlinx.android.synthetic.main.fragment_socket.*
 import kotlinx.coroutines.*
 import java.lang.Exception

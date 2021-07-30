@@ -3,6 +3,10 @@
 buildscript {
     ext.kotlin_version = '1.3.72'
 
+    ext {
+        booster_version = "2.3.0"
+    }
+
     repositories {
         jcenter() {
             url "https://jcenter.bintray.com/"
@@ -17,6 +21,20 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
         classpath 'com.lee.plugin:mytestplugin:4.0.7'
+
+        classpath "com.didiglobal.booster:booster-gradle-plugin:$booster_version"
+        classpath "com.didiglobal.booster:booster-transform-finalizer-watchdog-daemon:$booster_version"
+//        修复 MediaPlayer 崩溃
+        classpath "com.didiglobal.booster:booster-transform-media-player:$booster_version"
+//        检查覆盖安装导致的 Resources 和 Assets 未加载的 Bug
+        classpath "com.didiglobal.booster:booster-transform-res-check:$booster_version"
+//        修复 Toast 在 Android 7.1 上的 Bug
+        classpath "com.didiglobal.booster:booster-transform-toast:$booster_version"
+//        处理系统 Crash
+        classpath "com.didiglobal.booster:booster-transform-activity-thread:$booster_version"
+//
+//        classpath "com.didiglobal.booster:booster-task-compression-pngquant:$booster_version"
+//        classpath "io.johnsonlee.booster:booster-pngquant-provider:$booster_version"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.example.baselib.R;
-import cn.example.baselib.util.DensityUtil;
+import cn.example.baselib.util.ScreenUtil;
 
 /**
  * Created by lee on 2018/4/2.
@@ -124,7 +124,7 @@ public class SlidingTabView extends TabLayoutView {
         private boolean topTabStyle;
 
         public Config(Context mContext) {
-            mTabLayoutHeight = DensityUtil.dipToPx(mContext, 48);
+            mTabLayoutHeight = ScreenUtil.dipToPx(mContext, 48);
         }
 
         public int getmTabLayoutHeight() {

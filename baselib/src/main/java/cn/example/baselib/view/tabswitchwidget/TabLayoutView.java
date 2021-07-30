@@ -5,7 +5,6 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.example.baselib.R;
-import cn.example.baselib.util.DensityUtil;
+import cn.example.baselib.util.ScreenUtil;
 
 /**
  * Created by lee on 2018/4/2.
@@ -224,8 +223,8 @@ public class TabLayoutView extends LinearLayout {
     private void addSeparatorLine() {
         View view = new View(mContext);
         LayoutParams layoutParams = new LayoutParams(mContext.getResources().getDimensionPixelOffset(R.dimen.separate_line_height), ViewGroup.LayoutParams.MATCH_PARENT);
-        layoutParams.topMargin = DensityUtil.dipToPx(mContext, 7);
-        layoutParams.bottomMargin = DensityUtil.dipToPx(mContext, 7);
+        layoutParams.topMargin = ScreenUtil.dipToPx(mContext, 7);
+        layoutParams.bottomMargin = ScreenUtil.dipToPx(mContext, 7);
         view.setBackgroundColor(mSeparateLineColor);
         tabContainerView.addView(view, layoutParams);
     }

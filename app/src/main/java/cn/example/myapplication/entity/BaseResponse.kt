@@ -3,4 +3,4 @@ package cn.example.myapplication.entity
 /**
  * Created by lee on 2017/6/29.
  */
-data class BaseResponse<E>(var isSuccess: Boolean, var status: String, var message: String, var data: List<E>? = null)
+data class BaseResponse<E>(var code: Int, var message: String, var data: E? )
