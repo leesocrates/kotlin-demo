@@ -3,19 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="cn.example.myapplication">
 
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-    <uses-feature android:name="android.hardware.camera" /> <!-- 使用照相机权限 -->
-    <uses-feature android:name="android.hardware.camera.autofocus" /> <!-- 自动聚焦权限 -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
-
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -33,33 +20,6 @@
         </activity>
 
         <!--别名1-->
-        <activity-alias
-            android:name="NewActivity1"
-            android:enabled="false"
-            android:label="Alias1"
-            android:icon="@mipmap/ic_launcher_round"
-            android:targetActivity=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity-alias>
-
-        <!--别名2-->
-        <activity-alias
-            android:name="NewActivity2"
-            android:enabled="false"
-            android:label="Alias2"
-            android:icon="@mipmap/ic_launcher"
-            android:targetActivity=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity-alias>
-
         <activity android:name=".activity.CustomViewActivity">
             <intent-filter tools:ignore="AppLinkUrlError">
                 <action android:name="android.intent.action.VIEW" />
@@ -70,7 +30,10 @@
                     android:scheme="http" />
             </intent-filter>
         </activity>
+
+        <!--别名2-->
         <activity android:name=".activity.QueryPhoneNumActivity" />
+
         <activity android:name=".activity.UserOperateActivity" />
         <activity android:name=".activity.RetrofitActivity" />
         <activity android:name=".activity.FragmentActivity" />
@@ -86,22 +49,72 @@
             android:name=".h5.VideoFullScreenActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:hardwareAccelerated="true" />
-
-        <service android:name=".service.LocalService" />
-        <service
-            android:name=".service.RemoteService"
-            android:process=":remote" />
-
-        <receiver android:name=".broadcast.MyBroadcast">
+        <activity
+            android:name=".activity.MultiScreenTestActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".activity.tasktest.TaskOneActivity" />
+        <activity
+            android:name=".activity.tasktest.SingleTaskActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.lee.demo" />
+        <activity
+            android:name=".activity.tasktest.SingleInstanceActivity"
+            android:launchMode="singleInstance" />
+        <activity android:name=".activity.AudioTestActivity" />
+        <activity-alias
+            android:name="NewActivity1"
+            android:enabled="false"
+            android:icon="@mipmap/ic_launcher_round"
+            android:label="Alias1"
+            android:targetActivity=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.SCREEN_ON" />
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </receiver>
+        </activity-alias>
+        <activity-alias
+            android:name="NewActivity2"
+            android:enabled="false"
+            android:icon="@mipmap/ic_launcher"
+            android:label="Alias2"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
         <provider
             android:name=".provider.MyContentProvider"
             android:authorities="com.example.socrate.myprovider"
             android:enabled="true"
             android:exported="true" />
-    </application>
+        <receiver android:name=".broadcast.MyBroadcast">
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_ON" />
+            </intent-filter>
+        </receiver>
 
+        <service android:name=".service.LocalService" />
+        <service
+            android:name=".service.RemoteService"
+            android:process=":remote" />
+    </application>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 使用照相机权限 -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 自动聚焦权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 </manifest>

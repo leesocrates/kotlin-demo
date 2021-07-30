@@ -1,9 +1,7 @@
-package cn.example.myapplication.network
+package cn.example.myapplication.utils
 
 import kotlinx.coroutines.*
 import kotlinx.coroutines.GlobalScope.coroutineContext
-import java.time.Instant.now
-import java.util.concurrent.Executors
 import kotlin.coroutines.Continuation
 import kotlin.coroutines.ContinuationInterceptor
 
@@ -126,7 +124,7 @@ class MyContinuationInterceptor: ContinuationInterceptor {
 class MyContinuation<T>(val continuation: Continuation<T>): Continuation<T> {
     override val context = continuation.context
     override fun resumeWith(result: Result<T>) {
-        log("<MyContinuation> $result" )
+        log("<MyContinuation> $result")
         continuation.resumeWith(result)
     }
 }

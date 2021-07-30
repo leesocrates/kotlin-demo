@@ -12,8 +12,10 @@ import android.view.View
 import cn.example.baselib.activity.BaseActivity
 import cn.example.businessone.activity.BusinessOneActivity
 import cn.example.myapplication.activity.*
+import cn.example.myapplication.activity.tasktest.TaskOneActivity
 import cn.example.myapplication.fragment.CustomDialogFragment
 import cn.example.myapplication.h5.VideoFullScreenActivity
+import cn.example.myapplication.monitor.FrameUtils
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 
@@ -50,8 +52,8 @@ class MainActivity : BaseActivity() {
         openCustomViewActivity.setOnClickListener {
             startActivity(Intent(this, CustomViewActivity::class.java))
         }
-        openReactActivity.setOnClickListener {
-            //            startActivity(Intent(this, MyReactActivity::class.java))
+        openRetrofitActivity.setOnClickListener {
+            startActivity(Intent(this, RetrofitActivity::class.java))
         }
         openSurfaceActivity.setOnClickListener {
             startActivity(Intent(this, SurfaceActivity::class.java))
@@ -61,19 +63,35 @@ class MainActivity : BaseActivity() {
         }
 
         changeAlias.setOnClickListener {
-            //            setLaunchActivity()
-            testDialogShow()
+            setLaunchActivity()
         }
 
+        multiScreenActivity.setOnClickListener {
+            startActivity(Intent(this, MultiScreenTestActivity::class.java))
+        }
+
+        taskActivity.setOnClickListener {
+            startActivity(Intent(this, TaskOneActivity::class.java))
+        }
+
+        audioTestActivity.setOnClickListener {
+            startActivity(Intent(this, AudioTestActivity::class.java))
+        }
 //        var file = File(FileUtils.getAssetsCacheFile(this,"classes10.dex"))
 //        HotFixUtils.loadFixedDex(this, file)
+
+//        FrameUtils().startMonitor() // 在每一帧执行时打印log
+
+
     }
 
     override fun onResume() {
         super.onResume()
+        Log.e(TAG, "onResume ${System.currentTimeMillis()}")
     }
 
     override fun onPause() {
+        Log.e(TAG, "onPause ${System.currentTimeMillis()}")
         super.onPause()
     }
 
@@ -110,31 +128,6 @@ class MainActivity : BaseActivity() {
                 ".NewActivity2"), PackageManager.COMPONENT_ENABLED_STATE_ENABLED, DONT_KILL_APP)
         packageManager.setComponentEnabledSetting(ComponentName(this, packageName +
                 ".MainActivity"), PackageManager.COMPONENT_ENABLED_STATE_DISABLED, DONT_KILL_APP)
-    }
-
-    fun testDialogShow() {
-        dialog = CustomDialogFragment()
-        for (i in 1..1000) {
-            val thread = Thread(Runnable {
-                if (!dialog!!.isShowing()) {
-                    dialog?.show(supportFragmentManager, "dialog")
-                }
-            })
-            thread.start()
-        }
-        for (i in 1..988) {
-            val thread1 = Thread(Runnable {
-                dialog?.dismiss()
-            })
-            thread1.start()
-        }
-        //            dialog?.show(supportFragmentManager, "dialog")
-//            if(!dialog!!.isShowing()){
-//                dialog?.show(supportFragmentManager, "dialog")
-//            }
-//            if(dialog!!.isAdded){
-//                dialog?.show(supportFragmentManager, "dialog")
-//            }
     }
 
 }

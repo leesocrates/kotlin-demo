@@ -6,77 +6,112 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <Button
-            android:id="@+id/openBusinessOne"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="openBusinessOne"/>
-        <Button
-            android:id="@+id/openUserActivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="open UserActivity" />
-        <Button
-            android:id="@+id/openFragmentActivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="open FragmentActivity" />
-        <Button
-            android:id="@+id/openWebViewActivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="open WebViewActivity" />
-        <Button
-            android:id="@+id/openHandlerActivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="open HandlerActivity" />
-        <Button
-            android:id="@+id/openEventActivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="open EventActivity" />
-        <Button
-            android:id="@+id/openServiceActivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="open ServiceTestActivity"/>
-        <Button
-            android:id="@+id/openAnimationActivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="open AnimationActivity"/>
-        <Button
-            android:id="@+id/openCustomViewActivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="open CustomView Activity"/>
-        <Button
-            android:id="@+id/openReactActivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="open React Activity"/>
-        <Button
-            android:id="@+id/openSurfaceActivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="openSurfaceActivity" />
-        <Button
-            android:id="@+id/openVideoFullScreenActivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="openVideoFullScreenActivity" />
-        <Button
-            android:id="@+id/changeAlias"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="changeAlias"/>
+        android:layout_height="match_parent">
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <Button
+                android:id="@+id/openBusinessOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="openBusinessOne" />
+
+            <Button
+                android:id="@+id/openUserActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="open UserActivity" />
+
+            <Button
+                android:id="@+id/openFragmentActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="open FragmentActivity" />
+
+            <Button
+                android:id="@+id/openWebViewActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="open WebViewActivity" />
+
+            <Button
+                android:id="@+id/openHandlerActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="open HandlerActivity" />
+
+            <Button
+                android:id="@+id/openEventActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="open EventActivity" />
+
+            <Button
+                android:id="@+id/openServiceActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="open ServiceTestActivity" />
+
+            <Button
+                android:id="@+id/openAnimationActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="open AnimationActivity" />
+
+            <Button
+                android:id="@+id/openCustomViewActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="open CustomView Activity" />
+
+            <Button
+                android:id="@+id/openRetrofitActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="open Retrofit Activity" />
+
+            <Button
+                android:id="@+id/openSurfaceActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="openSurfaceActivity" />
+
+            <Button
+                android:id="@+id/openVideoFullScreenActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="openVideoFullScreenActivity" />
+
+            <Button
+                android:id="@+id/changeAlias"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="changeAlias" />
+
+            <Button
+                android:id="@+id/multiScreenActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="multiScreenActivity" />
+
+            <Button
+                android:id="@+id/taskActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="taskTestActivity" />
+
+            <Button
+                android:id="@+id/audioTestActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="audioTestActivity" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

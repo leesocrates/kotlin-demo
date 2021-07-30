@@ -3,7 +3,7 @@ package cn.example.baselib.view.tagwidget;
 import android.content.Context;
 import android.view.ViewGroup;
 
-import cn.example.baselib.util.DensityUtil;
+import cn.example.baselib.util.ScreenUtil;
 
 
 /**
@@ -106,15 +106,15 @@ public class TagLayoutConfig {
         checkedBackgroundColor = 0xffff0000;
         pressedBackgroundColor = 0x88ff0000;
         unEnabledBackgroundColor = 0xff999999;
-        borderStrokeWidth = DensityUtil.dipToPx(context, 1);
+        borderStrokeWidth = ScreenUtil.dipToPx(context, 1);
         textColor = 0xff333333;
         textSize = 13;
-        tagViewLeftPadding = DensityUtil.dipToPx(context, 12);
-        tagViewTopPadding = DensityUtil.dipToPx(context, 3);
-        tagViewRightPadding = DensityUtil.dipToPx(context, 12);
-        tagViewBottomPadding = DensityUtil.dipToPx(context, 3);
-        horizontalSpacing = DensityUtil.dipToPx(context, 8);
-        verticalSpacing = DensityUtil.dipToPx(context, 4);
+        tagViewLeftPadding = ScreenUtil.dipToPx(context, 12);
+        tagViewTopPadding = ScreenUtil.dipToPx(context, 3);
+        tagViewRightPadding = ScreenUtil.dipToPx(context, 12);
+        tagViewBottomPadding = ScreenUtil.dipToPx(context, 3);
+        horizontalSpacing = ScreenUtil.dipToPx(context, 8);
+        verticalSpacing = ScreenUtil.dipToPx(context, 4);
         showModel = ShowModel.RECTANGLE;
     }
 

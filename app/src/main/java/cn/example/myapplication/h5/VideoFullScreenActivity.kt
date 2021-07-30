@@ -63,29 +63,29 @@ class VideoFullScreenActivity : BaseWebViewActivity() {
             }
         }
 
-        val mWebView = android.webkit.WebView(this)
-        mWebView.settings.javaScriptEnabled = true
-        totalLayout.addView(mWebView, 0)
-        mWebView.loadUrl("http://192.168.62.164:3000/")
+//        val mWebView = android.webkit.WebView(this)
+        webView.settings.javaScriptEnabled = true
+        totalLayout.addView(webView, 0)
+//        mWebView.loadUrl("http://192.168.62.164:3000/")
 
 //        totalLayout.addView(webView, 0)
-//        webView.loadUrl("https://www.baidu.com")
-//        webView.loadUrl("file:///android_asset/test.html")
+//        mWebView.loadUrl("https://www.baidu.com")
+        webView.loadUrl("file:///android_asset/test.html")
 //        webView.loadUrl("http://192.168.62.164:3000/")
     }
 
     override fun onConfigurationChanged(config: Configuration) {
         super.onConfigurationChanged(config)
-        when (config.orientation) {
-            Configuration.ORIENTATION_LANDSCAPE -> {
-                window.clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN)
-                window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
-            }
-            Configuration.ORIENTATION_PORTRAIT -> {
-                window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
-                window.addFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN)
-            }
-        }
+//        when (config.orientation) {
+//            Configuration.ORIENTATION_LANDSCAPE -> {
+//                window.clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN)
+//                window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+//            }
+//            Configuration.ORIENTATION_PORTRAIT -> {
+//                window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+//                window.addFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN)
+//            }
+//        }
     }
 
     override fun onDestroy() {
