@@ -29,4 +29,5 @@ ext { //此段花括号中代码是闭包
     //ext{}不是 ext(Closure)对应的函数调用。但是 ext{}中的{}确实是闭包。
     getVersionNameAdvanced = this.&getVersionNameAdvanced
     disableDebugBuild = this.&disableDebugBuild
+    testParams = '1.0.0'
 }

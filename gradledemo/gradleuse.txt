@@ -1,0 +1,15 @@
+1.输出错误信息（gradle构建错误时，默认不输出堆栈信息）
+-s 或者 --stacktrace   输出关键性的堆栈信息（推荐使用这个 -S输出太多不利于找问题）
+-S 或者 --full-stacktrace   输出全部堆栈信息
+
+2.打印日志方法
+println()   // 这个默认是quiet级别日志
+logger.debug()
+logger.info()
+....
+
+3.强制刷新依赖
+gradle --refresh-dependencies :gradledemo:hello
+
+4.多任务调用
+

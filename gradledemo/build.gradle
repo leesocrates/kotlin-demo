@@ -1,6 +1,13 @@
 plugins {
   id 'com.android.application'
+  id 'com.lee.gradle'
 }
+
+apply plugin: TestPlugin
+
+apply from: 'tasktest2.gradle'
+
+println "testParams is ${testParams}"
 
 android {
   compileSdkVersion 30
@@ -14,12 +21,33 @@ android {
     versionName "1.0"
 
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
   }
 
   buildTypes {
+    debug{
+      applicationIdSuffix '.debug' // applicationId加后缀
+      debuggable true
+      jniDebuggable true
+//      minifyEnabled true // 混淆
+      multiDexEnabled true
+//      proguardFile getDefaultProguardFile('proguard-android-optimize.txt')
+//      shrinkResources true  // 移除未使用的资源，必须同时设置minifyEnable为true才行，否则报错
+//      signingConfig signingConfigs.debug
+    }
     release {
       minifyEnabled false
+      zipAlignEnabled true
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  signingConfigs{
+    debug{
+
+    }
+    release{
+
     }
   }
   compileOptions {
@@ -36,4 +64,30 @@ dependencies {
   testImplementation 'junit:junit:4.+'
   androidTestImplementation 'androidx.test.ext:junit:1.1.1'
   androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+
+task wrapper(type: Wrapper){
+  gradleVersion = '6.1.1'
+  distributionUrl = 'http://services.gradle.org/distributions/gradle-6.1.1-all.zip'
+}
+
+
+subprojects {
+      println "subprojects configurion for $project.name" //遍历子 Project，project 变量对应每个子 Project
+      buildscript { //这也是一个 SB
+          //为每个子 Project 加载 properties.gradle 。当然，这句话可以放到 buildscript 花括号之后
+          apply from: rootProject.getRootDir().getAbsolutePath() + "/test.gradle"
+      }//buildscript 结束
+}
+
+class TestPlugin implements Plugin<Project>{
+
+  @Override
+  void apply(org.gradle.api.Project project) {
+    project.task('taskTest'){
+      doLast{
+        println 'taskTest doLast'
+      }
+    }
+  }
 }
