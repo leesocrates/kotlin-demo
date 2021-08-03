@@ -21,6 +21,12 @@ def disableDebugBuild(){
     }
 }
 
+def buildTime(){
+    def date = new Date()
+    def formatTime = date.format("yyyyMMdd")
+    return formatTime
+}
+
 //现在，想把这个 API 输出到各个 Project。由于这个 utils.gradle 会被每一个 Project Apply，所以
 //我可以把 getVersionNameAdvanced 定义成一个 closure，然后赋值到一个外部属性
 //下面的 ext 是谁的 ext？
@@ -30,4 +36,5 @@ ext { //此段花括号中代码是闭包
     getVersionNameAdvanced = this.&getVersionNameAdvanced
     disableDebugBuild = this.&disableDebugBuild
     testParams = '1.0.0'
+    buildTime = this.&buildTime
 }

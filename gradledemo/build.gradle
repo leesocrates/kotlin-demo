@@ -20,6 +20,8 @@ android {
     versionCode 1
     versionName "1.0"
 
+    flavorDimensions "default"
+
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
   }
@@ -50,9 +52,42 @@ android {
 
     }
   }
+  productFlavors{
+    free{
+      buildConfigField 'String', "WEB_TEST", 'test'
+      resValue "String", "hello", '"Hello i am free"'
+    }
+    charge{
+      buildConfigField 'String', "WEB_TEST", "\"http://baidu.com\""
+      resValue "String", "hello", '"Hello i am charge"'
+    }
+  }
+
   compileOptions {
     sourceCompatibility JavaVersion.VERSION_1_8
     targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  dexOptions{
+    javaMaxHeapSize '4g'
+    incremental true
+    preDexLibraries true
+    threadCount 2
+  }
+
+  // 修改打包的apk的包名
+  applicationVariants.all { variant ->
+    println "variant is ${variant.toString()} \n buildType is ${variant.buildType.name}\n" +
+        "flavorName is ${variant.flavorName}"
+
+    variant.outputs.all { output ->
+      println "output is ${output} \n outputFile is ${output.outputFile}"
+      if (output.outputFile!=null && output.outputFile.name.endsWith('.apk') &&
+          variant.flavorName == 'charge' && variant.buildType.name == 'debug') {
+        def apkFileName = "${project.name}_${variant.flavorName}_${variant.versionName}_${buildTime()}.apk"
+        outputFileName = apkFileName
+      }
+    }
   }
 }
 
